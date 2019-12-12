@@ -1,0 +1,29 @@
+<!doctype html>
+<title>OSS 117</title>
+<h1>OSS 117 examine ta pièce d'identité</h1>
+
+{% if error %}
+<img src="/static/oss-fache.jpg" height=200>
+<br>
+<br>
+<p style="color:#FF0000";>{{ error }}</p>
+<br>
+<br>
+{% else %}
+<img src="/static/jdj.jpeg" height=200>
+{% endif %}
+
+<h3>Donne moi donc une carte d'identité à examiner : </h3>
+<form method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input type=submit value=Upload>
+</form>
+{% if result %}
+<hr>
+<h1>Hmmm... Habile : </h1>
+ {% for (k,v) in result.items() %}
+ <p> {{ k }} : {{ v }} </p>
+ {% endfor %}
+
+ {% else %}
+ {% endif %}
